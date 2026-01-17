@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CraftedByMoharana | Heritage & Handicrafts</title>
+    <link rel="icon" type="image/png" href="images/logo-icon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Cinzel:wght@500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-primary: #8B4513;
+            --color-secondary: #E07A5F;
+            --color-accent: #F2CC8F;
+            --color-bg: #F4F1DE;
+            --color-text: #3D405B;
+            --color-white: #ffffff;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .brand { font-family: 'Cinzel', serif; }
+        .odia-text { font-family: 'Baloo 2', cursive; }
+
+        header {
+            background-color: var(--color-white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 5%;
+        }
+
+        nav { display: flex; justify-content: space-between; align-items: center; }
+
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--color-text); font-weight: 600; transition: var(--transition); }
+        .nav-links a:hover { color: var(--color-secondary); }
+
+        .controls { display: flex; gap: 1rem; align-items: center; }
+
+        .lang-switch {
+            border: 1px solid var(--color-primary);
+            background: none;
+            color: var(--color-primary);
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .lang-switch:hover { background: var(--color-primary); color: var(--color-white); }
+
+        .cart-icon { position: relative; cursor: pointer; font-size: 1.2rem; }
+        .cart-count {
+            position: absolute; top: -8px; right: -8px;
+            background: var(--color-secondary); color: white;
+            font-size: 0.7rem; width: 18px; height: 18px;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+        }
+
+        .hamburger { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        .hero {
+    position: relative;
+    min-height: 80vh;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.55)
+        ),
+        url('images/shop-bg.png');
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    color: var(--color-white);
+    padding: 4rem 1rem;
+}
+    .hero {
+    background-color: #2b1a12;
+}
+
+
+        .hero-content h1 { font-size: 3rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+        .btn {
+            padding: 12px 30px; background-color: var(--color-secondary); color: white;
+            border: none; font-size: 1rem; cursor: pointer; transition: var(--transition);
+            text-decoration: none; border-radius: 2px; display: inline-block;
+        }
+        .btn:hover { background-color: var(--color-primary); transform: translateY(-2px); }
+
+        .section-padding { padding: 4rem 5%; }
+        .section-title { text-align: center; font-size: 2rem; color: var(--color-primary); margin-bottom: 3rem; position: relative; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--color-secondary); margin: 10px auto; }
+
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .about-img img { width: 100%; border-radius: 8px; box-shadow: var(--shadow); }
+
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .product-card { background: var(--color-white); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+        .product-img { width: 100%; height: 250px; object-fit: cover; background-color: #eee; }
+        .product-info { padding: 1.5rem; }
+        .product-info h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--color-primary); }
+        .product-info p { color: #666; font-size: 0.9rem; margin-bottom: 1rem; }
+        .price-row { display: flex; justify-content: space-between; align-items: center; }
+        .price { font-weight: bold; font-size: 1.1rem; color: var(--color-text); }
+        .btn-sm { padding: 8px 16px; background-color: var(--color-primary); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9rem; }
+
+        footer { background-color: var(--color-text); color: var(--color-white); padding: 3rem 5%; margin-top: 2rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+        .footer-col h4 { color: var(--color-secondary); margin-bottom: 1rem; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 0.5rem; }
+        .footer-col a { color: #ddd; text-decoration: none; }
+        .copyright { text-align: center; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #555; font-size: 0.8rem; }
+
+        .cart-modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5); z-index: 2000; justify-content: flex-end;
+        }
+        .cart-content {
+            background: white; width: 400px; max-width: 90%; height: 100%;
+            padding: 2rem; display: flex; flex-direction: column;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.2); animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+        .cart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 1px solid #ddd; padding-bottom: 1rem; }
+        .close-cart { font-size: 1.5rem; cursor: pointer; background: none; border: none; }
+        .cart-items { flex-grow: 1; overflow-y: auto; }
+        .cart-item { display: flex; gap: 1rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #eee; }
+        .cart-item img { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; }
+        .item-details h4 { font-size: 0.9rem; margin-bottom: 5px; }
+        .cart-footer { border-top: 2px solid #ddd; padding-top: 1rem; margin-top: auto; }
+        .total-row { display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem; }
+        .checkout-btn { width: 100%; padding: 15px; background: var(--color-secondary); color: white; border: none; font-size: 1rem; cursor: pointer; border-radius: 4px; }
+        .checkout-btn:hover { background: var(--color-primary); }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute; right: 0; top: 60px; background-color: var(--color-white);
+                height: 0; flex-direction: column; width: 100%; overflow: hidden;
+                align-items: center; gap: 1.5rem; transition: height 0.3s ease-in-out;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { height: 250px; padding: 1rem 0; }
+            .hamburger { display: block; }
+            .about-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="brand">
+                <span>🛕</span> CraftedByMoharana
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" id="nav-about">Our Story</a></li>
+                <li><a href="#shop" id="nav-shop">Shop</a></li>
+                <li><a href="#gallery" id="nav-gallery">Gallery</a></li>
+                <li><a href="#contact" id="nav-contact">Contact</a></li>
+            </ul>
+
+            <div class="controls">
+                <button class="lang-switch" onclick="toggleLanguage()">EN / ଓଡ଼ିଆ</button>
+                <div class="cart-icon" onclick="openCart()">
+                    🛒 <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <div class="hamburger" onclick="toggleMenu()">☰</div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+    <div class="hero-content">
+        <h1 id="hero-title">Guardians of Divine Architecture</h1>
+        <p id="hero-subtitle">
+            Hand-carved idols and heritage crafts from the artisans of Lord Jagannath's chariots.
+        </p>
+        <a href="#shop" class="btn" id="hero-btn">Shop Collection</a>
+    </div>
+</section>
+
+
+    <section class="section-padding" id="about">
+        <h2 class="section-title" id="about-title">The Moharana Legacy</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p id="about-text-1">For centuries, the Moharana community has held the sacred chisel. We are the traditional architects responsible for constructing the chariots of the Rath Yatra in Puri.</p>
+                <br>
+                <p id="about-text-2">Every piece in our store is carved from sacred wood (Neem, Sal) or stone, carrying the blessings of Lord Jagannath and the touch of generations of mastery.</p>
+                <br>
+                <blockquote style="font-style: italic; border-left: 3px solid var(--color-secondary); padding-left: 10px;">
+                    "By the grace of the Lord, our hands shape faith."
+                </blockquote>
+            </div>
+            <div class="about-img">
+                <img src="images/workshop.jpg" alt="Moharana Workshop">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="shop">
+        <h2 class="section-title" id="shop-title">Featured Creations</h2>
+        <div class="product-grid" id="product-container"></div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>CraftedByMoharana</h4>
+                <p id="footer-desc">Preserving the legacy of Odisha's divine architects.</p>
+            </div>
+            <div class="footer-col">
+                <h4 id="footer-links">Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#">Shipping</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 id="footer-contact">Contact</h4>
+                <p>Puri, Odisha, India</p>
+                <p>craftedbymoharana@gmail.com</p>
+                <p>WhatsApp: +91 9938806911</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 CraftedByMoharana. All Rights Reserved.
+        </div>
+    </footer>
+
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Your Cart</h3>
+                <button class="close-cart" onclick="closeCart()">×</button>
+            </div>
+            <div class="cart-items" id="cartItemsContainer">
+                <p style="text-align:center; color:#888;">Your cart is empty.</p>
+            </div>
+            <div class="cart-footer">
+                <div class="total-row">
+                    <span>Total:</span>
+                    <span id="cartTotal">₹0</span>
+                </div>
+                <button class="checkout-btn" onclick="proceedToCheckout()">Proceed to Buy</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    const products = [
+        { id: "1", name: {en: "Neem Wood Jagannath", or: "ନିମ୍ବ କାଠ ଜଗନ୍ନାଥ"}, description: {en: "Hand-carved from sacred Neem wood.", or: "ପବିତ୍ର ନିମ୍ବ କାଠରୁ ଖୋଦିତ |"}, price: 4500, img: "https://placehold.co/400x400/E07A5F/ffffff?text=Jagannath" },
+        { id: "2", name: {en: "Rath Wheel Replica", or: "ରଥ ଚକ ପ୍ରତିକୃତି"}, description: {en: "Miniature scale model.", or: "ରଥ ଚକର ଏକ କ୍ଷୁଦ୍ର ପ୍ରତିକୃତି |"}, price: 2200, img: "https://placehold.co/400x400/8B4513/ffffff?text=Wheel" },
+        { id: "3", name: {en: "Carved Door Panel", or: "କାଠ ଖୋଦେଇ କବାଟ"}, description: {en: "Floral motifs inspired by Temple.", or: "ମନ୍ଦିର କାରୁକାର୍ଯ୍ୟ |"}, price: 8000, img: "https://placehold.co/400x400/F2CC8F/3D405B?text=Pattachitra+Door" },
+        { id: "4", name: {en: "Stone Lion", or: "ପଥର ସିଂହ"}, description: {en: "Traditional temple guardian.", or: "ମନ୍ଦିର ରକ୍ଷକ ସିଂହ |"}, price: 3500, img: "https://placehold.co/400x400/D3D3D3/000000?text=Stone+Lion" }
+    ];
+
+    const staticContent = {
+        en: { navAbout: "Our Story", navShop: "Shop", navGallery: "Gallery", navContact: "Contact", heroTitle: "Guardians of Divine Architecture", heroSubtitle: "Hand-carved idols and heritage crafts from the artisans of Lord Jagannath's chariots.", heroBtn: "Shop Collection", aboutTitle: "The Moharana Legacy", aboutText1: "For centuries, the Moharana community has held the sacred chisel. We are the traditional architects responsible for constructing the chariots of the Rath Yatra in Puri.", aboutText2: "Every piece in our store is carved from sacred wood (Neem, Sal) or stone, carrying the blessings of Lord Jagannath and the touch of generations of mastery.", shopTitle: "Featured Creations", footerDesc: "Preserving the legacy of Odisha's divine architects.", footerLinks: "Quick Links", footerContact: "Contact" },
+        or: { navAbout: "ଆମ କାହାଣୀ", navShop: "ଦୋକାନ", navGallery: "ଗ୍ୟାଲେରୀ", navContact: "ଯୋଗାଯୋଗ", heroTitle: "ଦିବ୍ୟ ବାସ୍ତୁକଳାର ରକ୍ଷକ", heroSubtitle: "ମହାପ୍ରଭୁ ଜଗନ୍ନାଥଙ୍କ ରଥର କାରିଗରମାନଙ୍କ ଦ୍ୱାରା ନିର୍ମିତ ହସ୍ତକଳା |", heroBtn: "ସଂଗ୍ରହ ଦେଖନ୍ତୁ", aboutTitle: "ମହାରଣା ପରମ୍ପରା", aboutText1: "ଶତାବ୍ଦୀ ଧରି ମହାରଣା ସମ୍ପ୍ରଦାୟ ପବିତ୍ର ନିହାଣ ଧରି ଆସିଛନ୍ତି | ଆମେ ପୁରୀ ରଥଯାତ୍ରାର ରଥ ନିର୍ମାଣ ପାଇଁ ଦାୟୀ ପାରମ୍ପାରିକ ସ୍ଥପତି |", aboutText2: "ଆମର ପ୍ରତ୍ୟେକ କଳାକୃତି ପବିତ୍ର ନିମ୍ବ କାଠ କିମ୍ବା ପଥରରେ ଖୋଦିତ, ଯାହା ମହାପ୍ରଭୁଙ୍କ ଆଶୀର୍ବାଦ ବହନ କରେ |", shopTitle: "ବିଶେଷ ଆକର୍ଷଣ", footerDesc: "ଓଡିଶାର ଦିବ୍ୟ ସ୍ଥପତିମାନଙ୍କର ଐତିହ୍ୟ ସଂରକ୍ଷଣ |", footerLinks: "ଶୀଘ୍ର ଲିଙ୍କ୍", footerContact: "ଠିକଣା" }
+    };
+
+    let cart = []; 
+    let currentLang = 'en';
+
+    function renderProducts() {
+        const container = document.getElementById('product-container');
+        container.innerHTML = products.map(p => `
+            <div class="product-card">
+                <img src="${p.img}" class="product-img">
+                <div class="product-info">
+                    <h3 class="${currentLang==='or'?'odia-text':''}">${p.name[currentLang]}</h3>
+                    <p class="p-desc ${currentLang==='or'?'odia-text':''}">${p.description[currentLang]}</p>
+                    <div class="price-row">
+                        <span class="price">₹${p.price}</span>
+                        <button class="btn-sm" onclick="addToCart('${p.id}')">${currentLang==='en'?'Add to Cart':'କିଣନ୍ତୁ'}</button>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function addToCart(id) {
+        const product = products.find(p => p.id === id);
+        cart.push(product);
+        updateCartUI();
+    }
+
+    function removeFromCart(index) {
+        cart.splice(index, 1);
+        updateCartUI();
+    }
+
+    function updateCartUI() {
+        document.getElementById('cartCount').innerText = cart.length;
+        const container = document.getElementById('cartItemsContainer');
+        const totalEl = document.getElementById('cartTotal');
+        
+        let total = 0;
+        if(cart.length === 0) {
+            container.innerHTML = '<p style="text-align:center; color:#888; margin-top:20px;">Cart is empty / ଝୁଡି ଖାଲି ଅଛି</p>';
+        } else {
+            container.innerHTML = cart.map((item, index) => {
+                total += item.price;
+                return `
+                <div class="cart-item">
+                    <img src="${item.img}" alt="item">
+                    <div class="item-details" style="flex-grow:1;">
+                        <h4 class="${currentLang==='or'?'odia-text':''}">${item.name[currentLang]}</h4>
+                        <p>₹${item.price}</p>
+                    </div>
+                    <button onclick="removeFromCart(${index})" style="background:none; border:none; color:red; cursor:pointer;">🗑️</button>
+                </div>`;
+            }).join('');
+        }
+        totalEl.innerText = '₹' + total;
+    }
+
+    function openCart() { document.getElementById('cartModal').style.display = 'flex'; }
+    function closeCart() { document.getElementById('cartModal').style.display = 'none'; }
+    
+    function toggleMenu() {
+        document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    function toggleLanguage() { 
+        currentLang = currentLang === 'en' ? 'or' : 'en'; 
+        const data = staticContent[currentLang];
+        const body = document.body;
+
+        if (currentLang === 'or') body.classList.add('odia-text');
+        else body.classList.remove('odia-text');
+
+        document.getElementById('nav-about').innerText = data.navAbout;
+        document.getElementById('nav-shop').innerText = data.navShop;
+        document.getElementById('nav-gallery').innerText = data.navGallery;
+        document.getElementById('nav-contact').innerText = data.navContact;
+        document.getElementById('hero-title').innerText = data.heroTitle;
+        document.getElementById('hero-subtitle').innerText = data.heroSubtitle;
+        document.getElementById('hero-btn').innerText = data.heroBtn;
+        document.getElementById('about-title').innerText = data.aboutTitle;
+        document.getElementById('about-text-1').innerText = data.aboutText1;
+        document.getElementById('about-text-2').innerText = data.aboutText2;
+        document.getElementById('shop-title').innerText = data.shopTitle;
+        document.getElementById('footer-desc').innerText = data.footerDesc;
+        document.getElementById('footer-links').innerText = data.footerLinks;
+        document.getElementById('footer-contact').innerText = data.footerContact;
+
+        renderProducts(); 
+        updateCartUI(); 
+    }
+
+    function proceedToCheckout() {
+        if (cart.length === 0) { alert("Cart is empty!"); return; }
+        localStorage.setItem('moharanaCart', JSON.stringify(cart));
+        localStorage.setItem('moharanaLang', currentLang);
+        window.location.href = 'checkout.html';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        renderProducts();
+    });
+    </script>
+</body>
+</html>

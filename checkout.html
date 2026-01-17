@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | CraftedByMoharana</title>
+    <link rel="icon" type="image/png" href="images/logo-icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #8B4513; --bg: #F4F1DE; --white: #fff; }
+        body { font-family: 'Lato', sans-serif; background: var(--bg); padding: 2rem; color: #333; }
+        
+        .container { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; }
+        
+        .card { background: var(--white); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h2 { color: var(--primary); margin-bottom: 1.5rem; border-bottom: 2px solid #eee; padding-bottom: 0.5rem; }
+
+        .form-group { margin-bottom: 1rem; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-family: inherit; }
+        
+        .order-item { display: flex; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 0.5rem; }
+        .total-section { font-size: 1.2rem; font-weight: bold; margin-top: 1rem; padding-top: 1rem; border-top: 2px solid #333; display: flex; justify-content: space-between; }
+        
+        .place-order-btn {
+            background: var(--primary); color: white; border: none; width: 100%; padding: 15px;
+            font-size: 1.1rem; border-radius: 4px; cursor: pointer; margin-top: 1rem;
+        }
+        .place-order-btn:hover { opacity: 0.9; }
+        .back-link { display: block; margin-bottom: 1rem; color: var(--primary); text-decoration: none; }
+
+        @media (max-width: 768px) { .container { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-link">← Back to Shop</a>
+
+    <div class="container">
+        <div class="card">
+            <h2>Shipping Details / ପଠାଇବା ଠିକଣା</h2>
+            <form id="checkoutForm" onsubmit="handleOrder(event)">
+                <div class="form-group">
+                    <label>Full Name / ନାମ</label>
+                    <input type="text" required placeholder="Ex: Ramesh Mohanty">
+                </div>
+                <div class="form-group">
+                    <label>Email ID / ଇମେଲ୍</label>
+                    <input type="email" required placeholder="craftedbymoharana@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label>Phone / ଫୋନ୍ ନମ୍ବର</label>
+                    <input type="tel" required placeholder="+91 9876543210">
+                </div>
+                <div class="form-group">
+                    <label>Address / ଠିକଣା</label>
+                    <textarea rows="3" required placeholder="Street, City, Pin Code"></textarea>
+                </div>
+                <button type="submit" class="place-order-btn">Confirm Order (COD)</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Order Summary</h2>
+            <div id="orderItems">
+                </div>
+            <div class="total-section">
+                <span>Grand Total:</span>
+                <span id="grandTotal">₹0</span>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                * Currently supporting Cash on Delivery or UPI upon confirmation call.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyS-cXesrNfYK2GkmxH1iBclmQdfcUUCAVaN60Hn2K7fjvcpnPXSAAt91kxCVmMfcC-/exec';
+
+        const cart = JSON.parse(localStorage.getItem('moharanaCart')) || [];
+        const lang = localStorage.getItem('moharanaLang') || 'en';
+        const orderContainer = document.getElementById('orderItems');
+        let total = 0;
+
+        if (cart.length === 0) {
+            orderContainer.innerHTML = "<p>Your cart is empty.</p>";
+        } else {
+            cart.forEach(item => {
+                total += item.price;
+                const name = item.name[lang] || item.name['en'];
+                const div = document.createElement('div');
+                div.className = 'order-item';
+                div.innerHTML = `<span>${name}</span><span>₹${item.price}</span>`;
+                orderContainer.appendChild(div);
+            });
+            document.getElementById('grandTotal').innerText = '₹' + total;
+        }
+
+        function handleOrder(e) {
+            e.preventDefault();
+            const submitBtn = document.querySelector('.place-order-btn');
+
+            if(cart.length === 0) { alert("Cart is empty"); return; }
+
+            if(confirm("Confirm your order for ₹" + total + "?")) {
+                
+                submitBtn.innerText = "Processing...";
+                submitBtn.disabled = true;
+
+                const orderData = {
+                    'Date': new Date().toString(),
+                    'Order ID': 'ORD-' + Math.floor(Math.random() * 10000),
+                    'Customer Name': document.querySelector('input[placeholder="Ex: Ramesh Mohanty"]').value,
+                    'Phone': document.querySelector('input[type="tel"]').value,
+                    'Address': document.querySelector('textarea').value,
+                    'Total Amount': total,
+                    'items': cart.map(item => ({ name: item.name['en'], price: item.price }))
+                };
+
+                fetch(scriptURL, {
+                    method: 'POST',
+                    body: JSON.stringify(orderData),
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(() => {
+                    localStorage.removeItem('moharanaCart');
+                    window.location.href = 'thankyou.html';
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert("Error! Please try again.");
+                    submitBtn.innerText = "Confirm Order (COD)";
+                    submitBtn.disabled = false;
+                });
+            }
+        }
+    </script>
+</body>
+</html>
