@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help Centre | CraftedByMoharana</title>
+<link rel="icon" type="image/png" href="images/logo-icon.png">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Cinzel:wght@500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== THEME VARIABLES (MATCH INDEX) ===== */
+:root {
+    --primary: #8B4513;
+    --secondary: #E07A5F;
+    --accent: #F2CC8F;
+    --bg: #F4F1DE;
+    --text: #3D405B;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
+
+/* ===== BASE ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+h1, h2, h3 {
+    font-family: 'Cinzel', serif;
+}
+
+.odia {
+    font-family: 'Baloo 2', cursive;
+}
+
+/* ===== HEADER ===== */
+header {
+    background: var(--white);
+    padding: 1rem 5%;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.lang-switch {
+    border: 1px solid var(--primary);
+    background: none;
+    color: var(--primary);
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* ===== SECTION ===== */
+.section-padding {
+    padding: 4rem 5%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--secondary);
+    margin: 10px auto;
+}
+
+/* ===== HELP CARDS ===== */
+.help-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.help-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.help-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.help-card h3 {
+    color: var(--primary);
+    margin-bottom: 0.8rem;
+}
+
+.help-card p {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+}
+
+/* ===== BUTTONS ===== */
+.btn-sm {
+    padding: 8px 16px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-sm:hover {
+    background-color: var(--secondary);
+}
+
+.btn {
+    padding: 12px 30px;
+    background-color: var(--secondary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    background-color: var(--primary);
+}
+
+/* ===== FAQ ===== */
+.faq-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+
+.faq-card h4 {
+    color: var(--primary);
+}
+
+.faq-card p {
+    display: none;
+    margin-top: 0.8rem;
+    color: #555;
+}
+
+.faq-card.active p {
+    display: block;
+}
+
+/* ===== TICKET ===== */
+.ticket-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    max-width: 600px;
+    margin: auto;
+}
+
+.ticket-card input,
+.ticket-card textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* ===== ADMIN ===== */
+/* .admin-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    max-width: 600px;
+    margin: 3rem auto 0;
+    border-top: 3px solid var(--accent);
+} */
+
+/* ===== WHATSAPP ===== */
+.whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: var(--text);
+    color: white;
+    padding: 3rem 5%;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+/* ===== ADMIN ACCESS UI ===== */
+
+.admin-card {
+    max-width: 420px;
+    margin: 0 auto;
+    background: var(--color-white);
+    padding: 2.5rem 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.admin-card input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.admin-card button {
+    width: 100%;
+}
+
+.admin-error {
+    margin-top: 1rem;
+    color: #c0392b;
+    display: none;
+    font-size: 0.9rem;
+}
+
+.btn-logout {
+    background-color: #b03a2e;
+}
+
+.btn-logout:hover {
+    background-color: #922b21;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" class="brand">🛕 CraftedByMoharana</a>
+    <button class="lang-switch" onclick="toggleLang()">EN / ଓଡ଼ିଆ</button>
+</header>
+
+<section class="section-padding">
+    <h2 class="section-title" id="title">Help Centre</h2>
+
+    <div class="help-grid">
+        <div class="help-card">
+            <h3 id="c1">📦 Orders & Shipping</h3>
+            <p>Track your order and delivery status.</p>
+            <a href="track-order.html"><button class="btn-sm">Track Order</button></a>
+        </div>
+
+        <div class="help-card">
+            <h3 id="c2">💳 Payments</h3>
+            <p>Payment methods and refund queries.</p>
+        </div>
+
+        <div class="help-card">
+            <h3 id="c3">🔁 Returns & Refunds</h3>
+            <p>Return policy for handcrafted items.</p>
+        </div>
+
+        <div class="help-card">
+            <h3 id="c4">🛠 Custom Orders</h3>
+            <p>Request custom Jagannath idols.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding">
+    <h2 class="section-title">FAQs</h2>
+    <div id="faqBox"></div>
+</section>
+
+<section class="section-padding">
+    <h2 class="section-title">Raise a Support Ticket</h2>
+    <div class="ticket-card">
+        <input id="tName" placeholder="Your Name">
+        <input id="tEmail" placeholder="Email">
+        <textarea id="tMsg" placeholder="Describe your issue"></textarea>
+        <button class="btn" onclick="submitTicket()">Submit Ticket</button>
+    </div>
+</section>
+<section class="section-padding admin-box" id="adminSection" style="display:none;">
+    <h2 class="section-title">Admin Panel</h2>
+
+    <div class="admin-card">
+        <button class="btn btn-logout" onclick="logoutAdmin()">
+            Logout Admin
+        </button>
+
+        <!-- Your existing FAQ editor inputs stay here -->
+         <input 
+            type="password" 
+            id="adminPassword" 
+            placeholder="Enter Admin Password"
+        >
+
+        <button class="btn" onclick="checkAdmin()">Login</button>
+
+        <p id="adminError" class="admin-error">
+            Incorrect password. Access denied.
+        </p>
+    </div>
+</section>
+
+<!-- ADMIN LOGIN -->
+<section class="section-padding" id="adminLogin">
+    <h2 class="section-title">Admin Access</h2>
+    <div class="admin-card">
+        <input type="password" id="adminPassword" placeholder="Enter Admin Password">
+        <button class="btn" onclick="checkAdmin()">Login</button>
+        <p id="adminError" class="admin-error">Incorrect password</p>
+    </div>
+</section>
+
+<!-- ADMIN PANEL -->
+<section class="section-padding admin-box" id="adminPanel" style="display:none;">
+    <h2 class="section-title">Admin – FAQ Editor</h2>
+
+    <div class="admin-card">
+        <button class="btn btn-logout" onclick="logoutAdmin()">Logout Admin</button>
+        <br><br>
+        <input id="faqQ" placeholder="FAQ Question">
+        <textarea id="faqA" placeholder="FAQ Answer"></textarea>
+        <button class="btn" onclick="addFAQ()">Add FAQ</button>
+    </div>
+</section>
+
+
+<section class="section-padding admin-box" id="adminSection" style="display:none;">
+
+    <h2 class="section-title">Admin – FAQ Editor</h2>
+    <div class="admin-card">
+        <input id="faqQ" placeholder="FAQ Question">
+        <textarea id="faqA" placeholder="FAQ Answer"></textarea>
+        <button class="btn" onclick="addFAQ()">Add FAQ</button>
+    </div>
+</section>
+
+<a class="whatsapp" href="https://wa.me/919938806911" target="_blank">💬</a>
+
+<footer>
+    &copy; 2026 CraftedByMoharana · Preserving Sacred Craftsmanship
+</footer>
+
+<script>
+let lang = 'en';
+
+const langData = {
+    en: {
+        title: "Help Centre",
+        c1: "📦 Orders & Shipping",
+        c2: "💳 Payments",
+        c3: "🔁 Returns & Refunds",
+        c4: "🛠 Custom Orders"
+    },
+    or: {
+        title: "ସହାୟତା କେନ୍ଦ୍ର",
+        c1: "ଅର୍ଡର ଓ ଡିଲିଭରି",
+        c2: "ପେମେଣ୍ଟ",
+        c3: "ରିଟର୍ନ ଓ ରିଫଣ୍ଡ",
+        c4: "କଷ୍ଟମ ଅର୍ଡର"
+    }
+};
+
+function toggleLang() {
+    lang = lang === 'en' ? 'or' : 'en';
+    document.getElementById('title').innerText = langData[lang].title;
+    document.getElementById('c1').innerText = langData[lang].c1;
+    document.getElementById('c2').innerText = langData[lang].c2;
+    document.getElementById('c3').innerText = langData[lang].c3;
+    document.getElementById('c4').innerText = langData[lang].c4;
+}
+
+/* ===== FAQ LOGIC ===== */
+function addFAQ() {
+    const faq = { q: faqQ.value, a: faqA.value };
+    let faqs = JSON.parse(localStorage.getItem("faqs")) || [];
+    faqs.push(faq);
+    localStorage.setItem("faqs", JSON.stringify(faqs));
+    renderFAQs();
+}
+
+function renderFAQs() {
+    const box = document.getElementById("faqBox");
+    const faqs = JSON.parse(localStorage.getItem("faqs")) || [];
+    box.innerHTML = faqs.map(f => `
+        <div class="faq-card" onclick="this.classList.toggle('active')">
+            <h4>${f.q}</h4>
+            <p>${f.a}</p>
+        </div>
+    `).join('');
+}
+
+document.addEventListener("DOMContentLoaded", renderFAQs);
+
+/* ===== TICKET ===== */
+function submitTicket() {
+    const ticket = {
+        id: "TCK" + Date.now(),
+        name: tName.value,
+        email: tEmail.value,
+        msg: tMsg.value
+    };
+
+    let tickets = JSON.parse(localStorage.getItem("tickets")) || [];
+    tickets.push(ticket);
+    localStorage.setItem("tickets", JSON.stringify(tickets));
+
+    alert("Ticket submitted successfully! Ticket ID: " + ticket.id);
+}
+/* ============ ADMIN AUTH ============ */
+const ADMIN_PASSWORD = "moharana@123";
+
+function checkAdmin() {
+    const input = document.getElementById("adminPassword").value;
+    const error = document.getElementById("adminError");
+
+    if (input === ADMIN_PASSWORD) {
+        document.getElementById("adminPanel").style.display = "block";
+        document.getElementById("adminLogin").style.display = "none";
+        sessionStorage.setItem("adminLoggedIn", "true");
+        error.style.display = "none";
+    } else {
+        error.style.display = "block";
+    }
+}
+
+// if (sessionStorage.getItem("adminLoggedIn") === "true") {
+//     document.getElementById("adminPanel").style.display = "block";
+//     document.getElementById("adminLogin").style.display = "none";
+// }
+
+// function logoutAdmin() {
+//     sessionStorage.removeItem("adminLoggedIn");
+//     location.reload();
+// }
+
+
+
+/* Persist login during session */
+if (sessionStorage.getItem("adminLoggedIn") === "true") {
+    document.getElementById("adminSection").style.display = "block";
+    document.getElementById("adminLogin").style.display = "none";
+}
+
+function logoutAdmin() {
+    sessionStorage.removeItem("adminLoggedIn");
+    location.reload();
+}
+
+</script>
+
+</body>
+</html>
