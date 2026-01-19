@@ -193,10 +193,12 @@
 <ul class="nav-links" id="navLinks">
     <li><a href="#about" id="nav-about">Our Story</a></li>
     <li><a href="#shop" id="nav-shop">Shop</a></li>
-    <li><a href="track-order.html">Track Order</a></li>
+    
+    <li><a href="track-order.html" id="nav-track">Track Order</a></li>
+    
     <li><a href="#contact" id="nav-contact">Contact</a></li>
-    <li><a href="help-centre.html">Help Centre</a></li>
-
+    
+    <li><a href="help-centre.html" id="nav-help">Help Centre</a></li>
 </ul>
 
 
@@ -290,7 +292,7 @@
         </div>
     </div>
 
-    <script>
+<script>
     const products = [
         { id: "1", name: {en: "Neem Wood Jagannath", or: "ନିମ୍ବ କାଠ ଜଗନ୍ନାଥ"}, description: {en: "Hand-carved from sacred Neem wood.", or: "ପବିତ୍ର ନିମ୍ବ କାଠରୁ ଖୋଦିତ |"}, price: 4500, img: "https://placehold.co/400x400/E07A5F/ffffff?text=Jagannath" },
         { id: "2", name: {en: "Rath Wheel Replica", or: "ରଥ ଚକ ପ୍ରତିକୃତି"}, description: {en: "Miniature scale model.", or: "ରଥ ଚକର ଏକ କ୍ଷୁଦ୍ର ପ୍ରତିକୃତି |"}, price: 2200, img: "https://placehold.co/400x400/8B4513/ffffff?text=Wheel" },
@@ -299,8 +301,40 @@
     ];
 
     const staticContent = {
-        en: { navAbout: "Our Story", navShop: "Shop", navGallery: "Gallery", navContact: "Contact", heroTitle: "Guardians of Divine Architecture", heroSubtitle: "Hand-carved idols and heritage crafts from the artisans of Lord Jagannath's chariots.", heroBtn: "Shop Collection", aboutTitle: "The Moharana Legacy", aboutText1: "For centuries, the Moharana community has held the sacred chisel. We are the traditional architects responsible for constructing the chariots of the Rath Yatra in Puri.", aboutText2: "Every piece in our store is carved from sacred wood (Neem, Sal) or stone, carrying the blessings of Lord Jagannath and the touch of generations of mastery.", shopTitle: "Featured Creations", footerDesc: "Preserving the legacy of Odisha's divine architects.", footerLinks: "Quick Links", footerContact: "Contact" },
-        or: { navAbout: "ଆମ କାହାଣୀ", navShop: "ଦୋକାନ", navGallery: "ଗ୍ୟାଲେରୀ", navContact: "ଯୋଗାଯୋଗ", heroTitle: "ଦିବ୍ୟ ବାସ୍ତୁକଳାର ରକ୍ଷକ", heroSubtitle: "ମହାପ୍ରଭୁ ଜଗନ୍ନାଥଙ୍କ ରଥର କାରିଗରମାନଙ୍କ ଦ୍ୱାରା ନିର୍ମିତ ହସ୍ତକଳା |", heroBtn: "ସଂଗ୍ରହ ଦେଖନ୍ତୁ", aboutTitle: "ମହାରଣା ପରମ୍ପରା", aboutText1: "ଶତାବ୍ଦୀ ଧରି ମହାରଣା ସମ୍ପ୍ରଦାୟ ପବିତ୍ର ନିହାଣ ଧରି ଆସିଛନ୍ତି | ଆମେ ପୁରୀ ରଥଯାତ୍ରାର ରଥ ନିର୍ମାଣ ପାଇଁ ଦାୟୀ ପାରମ୍ପାରିକ ସ୍ଥପତି |", aboutText2: "ଆମର ପ୍ରତ୍ୟେକ କଳାକୃତି ପବିତ୍ର ନିମ୍ବ କାଠ କିମ୍ବା ପଥରରେ ଖୋଦିତ, ଯାହା ମହାପ୍ରଭୁଙ୍କ ଆଶୀର୍ବାଦ ବହନ କରେ |", shopTitle: "ବିଶେଷ ଆକର୍ଷଣ", footerDesc: "ଓଡିଶାର ଦିବ୍ୟ ସ୍ଥପତିମାନଙ୍କର ଐତିହ୍ୟ ସଂରକ୍ଷଣ |", footerLinks: "ଶୀଘ୍ର ଲିଙ୍କ୍", footerContact: "ଠିକଣା" }
+        en: { 
+            navAbout: "Our Story", 
+            navShop: "Shop", 
+            navTrack: "Track Order", // translation key
+            navHelp: "Help Centre",  // translation key
+            navContact: "Contact", 
+            heroTitle: "Guardians of Divine Architecture", 
+            heroSubtitle: "Hand-carved idols and heritage crafts from the artisans of Lord Jagannath's chariots.", 
+            heroBtn: "Shop Collection", 
+            aboutTitle: "The Moharana Legacy", 
+            aboutText1: "For centuries, the Moharana community has held the sacred chisel. We are the traditional architects responsible for constructing the chariots of the Rath Yatra in Puri.", 
+            aboutText2: "Every piece in our store is carved from sacred wood (Neem, Sal) or stone, carrying the blessings of Lord Jagannath and the touch of generations of mastery.", 
+            shopTitle: "Featured Creations", 
+            footerDesc: "Preserving the legacy of Odisha's divine architects.", 
+            footerLinks: "Quick Links", 
+            footerContact: "Contact" 
+        },
+        or: { 
+            navAbout: "ଆମ କାହାଣୀ", 
+            navShop: "ଦୋକାନ", 
+            navTrack: "ଅର୍ଡର ଟ୍ରାକ୍", // Odia translation
+            navHelp: "ସାହାଯ୍ୟ କେନ୍ଦ୍ର", // Odia translation
+            navContact: "ଯୋଗାଯୋଗ", 
+            heroTitle: "ଦିବ୍ୟ ବାସ୍ତୁକଳାର ରକ୍ଷକ", 
+            heroSubtitle: "ମହାପ୍ରଭୁ ଜଗନ୍ନାଥଙ୍କ ରଥର କାରିଗରମାନଙ୍କ ଦ୍ୱାରା ନିର୍ମିତ ହସ୍ତକଳା |", 
+            heroBtn: "ସଂଗ୍ରହ ଦେଖନ୍ତୁ", 
+            aboutTitle: "ମହାରଣା ପରମ୍ପରା", 
+            aboutText1: "ଶତାବ୍ଦୀ ଧରି ମହାରଣା ସମ୍ପ୍ରଦାୟ ପବିତ୍ର ନିହାଣ ଧରି ଆସିଛନ୍ତି | ଆମେ ପୁରୀ ରଥଯାତ୍ରାର ରଥ ନିର୍ମାଣ ପାଇଁ ଦାୟୀ ପାରମ୍ପାରିକ ସ୍ଥପତି |", 
+            aboutText2: "ଆମର ପ୍ରତ୍ୟେକ କଳାକୃତି ପବିତ୍ର ନିମ୍ବ କାଠ କିମ୍ବା ପଥରରେ ଖୋଦିତ, ଯାହା ମହାପ୍ରଭୁଙ୍କ ଆଶୀର୍ବାଦ ବହନ କରେ |", 
+            shopTitle: "ବିଶେଷ ଆକର୍ଷଣ", 
+            footerDesc: "ଓଡିଶାର ଦିବ୍ୟ ସ୍ଥପତିମାନଙ୍କର ଐତିହ୍ୟ ସଂରକ୍ଷଣ |", 
+            footerLinks: "ଶୀଘ୍ର ଲିଙ୍କ୍", 
+            footerContact: "ଠିକଣା" 
+        }
     };
 
     let cart = []; 
@@ -327,6 +361,7 @@
         const product = products.find(p => p.id === id);
         cart.push(product);
         updateCartUI();
+        openCart(); 
     }
 
     function removeFromCart(index) {
@@ -341,7 +376,7 @@
         
         let total = 0;
         if(cart.length === 0) {
-            container.innerHTML = '<p style="text-align:center; color:#888; margin-top:20px;">Cart is empty / ଝୁଡି ଖାଲି ଅଛି</p>';
+            container.innerHTML = '<p style="text-align:center; color:#888; margin-top:20px;">' + (currentLang==='en' ? 'Cart is empty' : 'ଝୁଡି ଖାଲି ଅଛି') + '</p>';
         } else {
             container.innerHTML = cart.map((item, index) => {
                 total += item.price;
@@ -374,20 +409,33 @@
         if (currentLang === 'or') body.classList.add('odia-text');
         else body.classList.remove('odia-text');
 
-        document.getElementById('nav-about').innerText = data.navAbout;
-        document.getElementById('nav-shop').innerText = data.navShop;
-        document.getElementById('nav-gallery').innerText = data.navGallery;
-        document.getElementById('nav-contact').innerText = data.navContact;
-        document.getElementById('hero-title').innerText = data.heroTitle;
-        document.getElementById('hero-subtitle').innerText = data.heroSubtitle;
-        document.getElementById('hero-btn').innerText = data.heroBtn;
-        document.getElementById('about-title').innerText = data.aboutTitle;
-        document.getElementById('about-text-1').innerText = data.aboutText1;
-        document.getElementById('about-text-2').innerText = data.aboutText2;
-        document.getElementById('shop-title').innerText = data.shopTitle;
-        document.getElementById('footer-desc').innerText = data.footerDesc;
-        document.getElementById('footer-links').innerText = data.footerLinks;
-        document.getElementById('footer-contact').innerText = data.footerContact;
+        // Helper function to safely set text
+        const setText = (id, text) => {
+            const el = document.getElementById(id);
+            if(el) el.innerText = text;
+        };
+
+        // Update all nav links
+        setText('nav-about', data.navAbout);
+        setText('nav-shop', data.navShop);
+        
+        // These two lines fix your specific issue:
+        setText('nav-track', data.navTrack); 
+        setText('nav-help', data.navHelp);
+        
+        setText('nav-contact', data.navContact);
+        
+        // Update rest of the page
+        setText('hero-title', data.heroTitle);
+        setText('hero-subtitle', data.heroSubtitle);
+        setText('hero-btn', data.heroBtn);
+        setText('about-title', data.aboutTitle);
+        setText('about-text-1', data.aboutText1);
+        setText('about-text-2', data.aboutText2);
+        setText('shop-title', data.shopTitle);
+        setText('footer-desc', data.footerDesc);
+        setText('footer-links', data.footerLinks);
+        setText('footer-contact', data.footerContact);
 
         renderProducts(); 
         updateCartUI(); 
@@ -403,6 +451,6 @@
     document.addEventListener('DOMContentLoaded', () => {
         renderProducts();
     });
-    </script>
+</script>
 </body>
 </html>
