@@ -5,11 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Help Centre | CraftedByMoharana</title>
 <link rel="icon" type="image/png" href="images/logo-icon.png">
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Cinzel:wght@500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-/* ===== THEME VARIABLES (MATCH INDEX) ===== */
+/* ===== THEME VARIABLES ===== */
 :root {
     --primary: #8B4513;
     --secondary: #E07A5F;
@@ -30,13 +29,8 @@ body {
     color: var(--text);
 }
 
-h1, h2, h3 {
-    font-family: 'Cinzel', serif;
-}
-
-.odia {
-    font-family: 'Baloo 2', cursive;
-}
+h1, h2, h3 { font-family: 'Cinzel', serif; }
+.odia { font-family: 'Baloo 2', cursive; }
 
 /* ===== HEADER ===== */
 header {
@@ -66,10 +60,7 @@ header {
 }
 
 /* ===== SECTION ===== */
-.section-padding {
-    padding: 4rem 5%;
-}
-
+.section-padding { padding: 4rem 5%; }
 .section-title {
     text-align: center;
     font-size: 2rem;
@@ -77,14 +68,9 @@ header {
     margin-bottom: 3rem;
     position: relative;
 }
-
 .section-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: var(--secondary);
-    margin: 10px auto;
+    content: ''; display: block; width: 60px; height: 3px;
+    background: var(--secondary); margin: 10px auto;
 }
 
 /* ===== HELP CARDS ===== */
@@ -93,7 +79,6 @@ header {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
 }
-
 .help-card {
     background: var(--white);
     border-radius: 8px;
@@ -101,22 +86,12 @@ header {
     box-shadow: var(--shadow);
     transition: var(--transition);
 }
-
 .help-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
-
-.help-card h3 {
-    color: var(--primary);
-    margin-bottom: 0.8rem;
-}
-
-.help-card p {
-    color: #666;
-    font-size: 0.95rem;
-    margin-bottom: 1.2rem;
-}
+.help-card h3 { color: var(--primary); margin-bottom: 0.8rem; }
+.help-card p { color: #666; font-size: 0.95rem; margin-bottom: 1.2rem; }
 
 /* ===== BUTTONS ===== */
 .btn-sm {
@@ -127,10 +102,7 @@ header {
     border-radius: 4px;
     cursor: pointer;
 }
-
-.btn-sm:hover {
-    background-color: var(--secondary);
-}
+.btn-sm:hover { background-color: var(--secondary); }
 
 .btn {
     padding: 12px 30px;
@@ -140,10 +112,7 @@ header {
     cursor: pointer;
     border-radius: 4px;
 }
-
-.btn:hover {
-    background-color: var(--primary);
-}
+.btn:hover { background-color: var(--primary); }
 
 /* ===== FAQ ===== */
 .faq-card {
@@ -154,20 +123,13 @@ header {
     box-shadow: var(--shadow);
     cursor: pointer;
 }
-
-.faq-card h4 {
-    color: var(--primary);
-}
-
+.faq-card h4 { color: var(--primary); }
 .faq-card p {
     display: none;
     margin-top: 0.8rem;
     color: #555;
 }
-
-.faq-card.active p {
-    display: block;
-}
+.faq-card.active p { display: block; }
 
 /* ===== TICKET ===== */
 .ticket-card {
@@ -178,9 +140,7 @@ header {
     max-width: 600px;
     margin: auto;
 }
-
-.ticket-card input,
-.ticket-card textarea {
+.ticket-card input, .ticket-card textarea {
     width: 100%;
     padding: 12px;
     margin-bottom: 1rem;
@@ -188,74 +148,22 @@ header {
     border-radius: 4px;
 }
 
-
 /* ===== WHATSAPP ===== */
 .whatsapp {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 60px;
-    height: 60px;
-    background: #25D366;
-    color: white;
+    position: fixed; bottom: 25px; right: 25px;
+    width: 60px; height: 60px;
+    background: #25D366; color: white;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    text-decoration: none;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; text-decoration: none;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 /* ===== FOOTER ===== */
 footer {
-    background: var(--text);
-    color: white;
-    padding: 3rem 5%;
-    margin-top: 4rem;
-    text-align: center;
+    background: var(--text); color: white;
+    padding: 3rem 5%; margin-top: 4rem; text-align: center;
 }
-
-/* ===== ADMIN ACCESS UI ===== */
-
-.admin-card {
-    max-width: 420px;
-    margin: 0 auto;
-    background: var(--color-white);
-    padding: 2.5rem 2rem;
-    border-radius: 10px;
-    box-shadow: var(--shadow);
-    text-align: center;
-}
-
-.admin-card input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 1.2rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-}
-
-.admin-card button {
-    width: 100%;
-}
-
-.admin-error {
-    margin-top: 1rem;
-    color: #c0392b;
-    display: none;
-    font-size: 0.9rem;
-}
-
-.btn-logout {
-    background-color: #b03a2e;
-}
-
-.btn-logout:hover {
-    background-color: #922b21;
-}
-
 </style>
 </head>
 
@@ -308,32 +216,6 @@ footer {
     </div>
 </section>
 
-<!-- ADMIN LOGIN -->
-<section class="section-padding" id="adminLogin">
-    <h2 class="section-title">Admin Access</h2>
-    <div class="admin-card">
-        <input type="password" id="adminPassword" placeholder="Enter Admin Password">
-        <button class="btn" onclick="checkAdmin()">Login</button>
-        <p id="adminError" class="admin-error">Incorrect password</p>
-    </div>
-</section>
-
-<!-- ADMIN PANEL -->
-<section class="section-padding admin-box" id="adminPanel" style="display:none;">
-    <h2 class="section-title">Admin – FAQ Editor</h2>
-
-    <div class="admin-card">
-        <button class="btn btn-logout" onclick="logoutAdmin()">Logout Admin</button>
-        <br><br>
-        <input id="faqQ" placeholder="FAQ Question">
-        <textarea id="faqA" placeholder="FAQ Answer"></textarea>
-        <button class="btn" onclick="addFAQ()">Add FAQ</button>
-    </div>
-</section>
-
-
-
-
 <a class="whatsapp" href="https://wa.me/919938806911" target="_blank">💬</a>
 
 <footer>
@@ -341,99 +223,87 @@ footer {
 </footer>
 
 <script>
-let lang = 'en';
+    // === 1. STORE ALL DATA HERE (NO GOOGLE SHEET) ===
+    let currentLang = 'en';
 
-const langData = {
-    en: {
-        title: "Help Centre",
-        c1: "📦 Orders & Shipping",
-        c2: "💳 Payments",
-        c3: "🔁 Returns & Refunds",
-        c4: "🛠 Custom Orders"
-    },
-    or: {
-        title: "ସହାୟତା କେନ୍ଦ୍ର",
-        c1: "ଅର୍ଡର ଓ ଡିଲିଭରି",
-        c2: "ପେମେଣ୍ଟ",
-        c3: "ରିଟର୍ନ ଓ ରିଫଣ୍ଡ",
-        c4: "କଷ୍ଟମ ଅର୍ଡର"
-    }
-};
-
-function toggleLang() {
-    lang = lang === 'en' ? 'or' : 'en';
-    document.getElementById('title').innerText = langData[lang].title;
-    document.getElementById('c1').innerText = langData[lang].c1;
-    document.getElementById('c2').innerText = langData[lang].c2;
-    document.getElementById('c3').innerText = langData[lang].c3;
-    document.getElementById('c4').innerText = langData[lang].c4;
-}
-
-/* ===== FAQ LOGIC ===== */
-function addFAQ() {
-    const faq = { q: faqQ.value, a: faqA.value };
-    let faqs = JSON.parse(localStorage.getItem("faqs")) || [];
-    faqs.push(faq);
-    localStorage.setItem("faqs", JSON.stringify(faqs));
-    renderFAQs();
-}
-
-function renderFAQs() {
-    const box = document.getElementById("faqBox");
-    const faqs = JSON.parse(localStorage.getItem("faqs")) || [];
-    box.innerHTML = faqs.map(f => `
-        <div class="faq-card" onclick="this.classList.toggle('active')">
-            <h4>${f.q}</h4>
-            <p>${f.a}</p>
-        </div>
-    `).join('');
-}
-
-document.addEventListener("DOMContentLoaded", renderFAQs);
-
-/* ===== TICKET ===== */
-function submitTicket() {
-    const ticket = {
-        id: "TCK" + Date.now(),
-        name: tName.value,
-        email: tEmail.value,
-        msg: tMsg.value
+    // Static text translation
+    const pageText = {
+        en: {
+            title: "Help Centre",
+            c1: "📦 Orders & Shipping",
+            c2: "💳 Payments",
+            c3: "🔁 Returns & Refunds",
+            c4: "🛠 Custom Orders"
+        },
+        or: {
+            title: "ସହାୟତା କେନ୍ଦ୍ର",
+            c1: "ଅର୍ଡର ଓ ଡିଲିଭରି",
+            c2: "ପେମେଣ୍ଟ",
+            c3: "ରିଟର୍ନ ଓ ରିଫଣ୍ଡ",
+            c4: "କଷ୍ଟମ ଅର୍ଡର"
+        }
     };
 
-    let tickets = JSON.parse(localStorage.getItem("tickets")) || [];
-    tickets.push(ticket);
-    localStorage.setItem("tickets", JSON.stringify(tickets));
+    // FAQ Data (Add or remove questions here easily)
+    const faqData = {
+        en: [
+            { q: "How long does delivery take?", a: "Domestic orders (India) typically arrive within 5-7 business days. International orders take 10-15 days depending on customs clearance." },
+            { q: "Do you ship internationally?", a: "Yes, we ship our divine idols and handicrafts worldwide. Shipping charges are calculated at checkout based on weight and location." },
+            { q: "Is the idol made of real Neem wood?", a: "Yes, absolutely. Every Jagannath idol is hand-carved from seasoned, sacred Neem wood by traditional artisans of Puri." },
+            { q: "What happens if my idol arrives damaged?", a: "We take great care in packaging. However, if damage occurs during transit, please share an unboxing video within 24 hours for a replacement." },
+            { q: "Can I order a custom size?", a: "Yes! As we carve everything by hand, we can customize the size (height/width) of the idols. Please contact us on WhatsApp (+91 9938806911) for a quote." }
+        ],
+        or: [
+            { q: "ଡେଲିଭରି କେତେ ଦିନ ଲାଗେ? (Delivery time?)", a: "ଭାରତ ଭିତରେ ଅର୍ଡର ପହଞ୍ଚିବାକୁ ସାଧାରଣତଃ ୫-୭ ଦିନ ଲାଗେ | ବିଦେଶ ଅର୍ଡର ପାଇଁ ୧୦-୧୫ ଦିନ ସମୟ ଲାଗିପାରେ |" },
+            { q: "ଆପଣ ବିଦେଶକୁ ପଠାନ୍ତି କି? (Intl shipping?)", a: "ହଁ, ଆମେ ବିଶ୍ୱର ଯେକୌଣସି ସ୍ଥାନକୁ ମହାପ୍ରଭୁଙ୍କ ମୂର୍ତ୍ତି ପଠାଇଥାଉ | ଓଜନ ଅନୁସାରେ ସିପିଂ ଚାର୍ଜ ଲାଗିବ |" },
+            { q: "ଏହା କଣ ଅସଲି ନିମ୍ବ କାଠ? (Real Neem wood?)", a: "ହଁ, ସମ୍ପୂର୍ଣ୍ଣ ସତ୍ୟ | ପ୍ରତ୍ୟେକ ମୂର୍ତ୍ତି ପୁରୀର କାରିଗରମାନଙ୍କ ଦ୍ୱାରା ପବିତ୍ର ନିମ୍ବ କାଠରୁ ନିର୍ମିତ |" },
+            { q: "ମୂର୍ତ୍ତି ଭାଙ୍ଗିଗଲେ କଣ ହେବ? (Damaged item?)", a: "ଯଦି ପାର୍ସଲ ଖୋଲିବା ବେଳେ କିଛି କ୍ଷତି ଦେଖାଯାଏ, ତେବେ ୨୪ ଘଣ୍ଟା ମଧ୍ୟରେ ଭିଡିଓ ପଠାନ୍ତୁ | ଆମେ ବଦଳାଇ ଦେବୁ |" },
+            { q: "ମୁଁ ନିଜ ପସନ୍ଦର ମୂର୍ତ୍ତି ଗଢିପାରିବି କି? (Custom size?)", a: "ହଁ, ଆମେ ହାତରେ ତିଆରି କରୁଥିବାରୁ ଆପଣଙ୍କ ଆବଶ୍ୟକତା ଅନୁଯାୟୀ ଆକାର ବଦଳାଇ ପାରିବୁ | ଦୟାକରି WhatsApp ରେ ଯୋଗାଯୋଗ କରନ୍ତୁ |" }
+        ]
+    };
 
-    alert("Ticket submitted successfully! Ticket ID: " + ticket.id);
-}
-/* ============ ADMIN AUTH ============ */
-const ADMIN_PASSWORD = "moharana@123";
+    // === 2. FUNCTIONS ===
+    
+    function toggleLang() {
+        // Switch Language
+        currentLang = currentLang === 'en' ? 'or' : 'en';
+        
+        // Update Static Text
+        document.getElementById('title').innerText = pageText[currentLang].title;
+        document.getElementById('c1').innerText = pageText[currentLang].c1;
+        document.getElementById('c2').innerText = pageText[currentLang].c2;
+        document.getElementById('c3').innerText = pageText[currentLang].c3;
+        document.getElementById('c4').innerText = pageText[currentLang].c4;
+        
+        // Add Odia Font Class
+        if(currentLang === 'or') document.body.classList.add('odia');
+        else document.body.classList.remove('odia');
 
-function checkAdmin() {
-    const input = document.getElementById("adminPassword").value;
-    const error = document.getElementById("adminError");
-
-    if (input === ADMIN_PASSWORD) {
-        document.getElementById("adminPanel").style.display = "block";
-        document.getElementById("adminLogin").style.display = "none";
-        sessionStorage.setItem("adminLoggedIn", "true");
-        error.style.display = "none";
-    } else {
-        error.style.display = "block";
+        // Re-render FAQs in the new language
+        renderFAQs();
     }
-}
 
-/* Persist login during session */
-if (sessionStorage.getItem("adminLoggedIn") === "true") {
-    document.getElementById("adminSection").style.display = "block";
-    document.getElementById("adminLogin").style.display = "none";
-}
+    function renderFAQs() {
+        const box = document.getElementById("faqBox");
+        const list = faqData[currentLang]; // Get the list for current language
 
-function logoutAdmin() {
-    sessionStorage.removeItem("adminLoggedIn");
-    location.reload();
-}
+        // Create HTML
+        box.innerHTML = list.map(f => `
+            <div class="faq-card" onclick="this.classList.toggle('active')">
+                <h4>${f.q}</h4>
+                <p>${f.a}</p>
+            </div>
+        `).join('');
+    }
 
+    // === 3. RUN ON LOAD ===
+    document.addEventListener("DOMContentLoaded", renderFAQs);
+
+    function submitTicket() {
+        const tName = document.getElementById('tName').value;
+        if(!tName) return alert("Please enter your name");
+        alert("For now, please contact us on WhatsApp for support!");
+    }
 </script>
 
 </body>
