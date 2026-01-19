@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Order | CraftedByMoharana</title>
+    <link rel="icon" type="image/png" href="images/logo-icon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #8B4513;
+            --secondary: #E07A5F;
+            --accent: #F2CC8F;
+            --bg: #F4F1DE;
+            --text: #3D405B;
+            --white: #ffffff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        h1, h2 { font-family: 'Cinzel', serif; }
+
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 1rem 5%;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .brand {
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* Hero */
+        .track-hero {
+            min-height: 40vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/shop-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .track-hero h1 {
+            font-size: 2.5rem;
+        }
+
+        /* Main Section */
+        .track-container {
+            max-width: 900px;
+            margin: -80px auto 4rem;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .track-container p {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .track-form {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .track-form input {
+            padding: 12px;
+            width: 280px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .track-form button {
+            padding: 12px 24px;
+            background: var(--secondary);
+            border: none;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .track-form button:hover {
+            background: var(--primary);
+        }
+
+        /* Status */
+        .status-box {
+            margin-top: 3rem;
+            display: none;
+        }
+
+        .status-step {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .status-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #ccc;
+        }
+
+        .status-step.active .status-dot {
+            background: var(--secondary);
+        }
+
+        .status-step.completed .status-dot {
+            background: green;
+        }
+
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .track-hero h1 { font-size: 1.8rem; }
+            .track-container { margin: -50px 1rem 3rem; padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="brand">🛕 CraftedByMoharana</a>
+</header>
+
+<section class="track-hero">
+    <h1>Track Your Order</h1>
+</section>
+
+<section class="track-container">
+    <p>Enter your Order ID to check the current shipping status.</p>
+
+    <div class="track-form">
+        <input type="text" id="orderId" placeholder="Enter Order ID">
+        <button onclick="trackOrder()">Track Order</button>
+    </div>
+
+    <div class="status-box" id="statusBox">
+        <h2 style="text-align:center; margin-bottom:2rem;">Order Status</h2>
+
+        <div class="status-step completed">
+            <div class="status-dot"></div>
+            <span>Order Confirmed</span>
+        </div>
+        <div class="status-step completed">
+            <div class="status-dot"></div>
+            <span>Crafting in Progress</span>
+        </div>
+        <div class="status-step active">
+            <div class="status-dot"></div>
+            <span>Shipped</span>
+        </div>
+        <div class="status-step">
+            <div class="status-dot"></div>
+            <span>Out for Delivery</span>
+        </div>
+        <div class="status-step">
+            <div class="status-dot"></div>
+            <span>Delivered</span>
+        </div>
+    </div>
+</section>
+
+<footer>
+    &copy; 2026 CraftedByMoharana · Handcrafted with Devotion
+</footer>
+
+<script>
+function trackOrder() {
+    const id = document.getElementById('orderId').value.trim();
+    if (!id) {
+        alert('Please enter a valid Order ID');
+        return;
+    }
+    document.getElementById('statusBox').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
