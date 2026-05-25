@@ -10,167 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Cinzel:wght@500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --primary: #8B4513;
-            --secondary: #E07A5F;
-            --accent: #F2CC8F;
-            --bg: #F4F1DE;
-            --text: #3D405B;
-            --white: #ffffff;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            font-family: 'Lato', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-        }
-
-        /* Class for Odia Font */
-        .odia-text { font-family: 'Baloo 2', cursive; }
-
-        h1, h2 { font-family: 'Cinzel', serif; }
-
-        /* Header */
-        header {
-            background: var(--white);
-            padding: 1rem 5%;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .brand {
-            font-size: 1.5rem;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        /* Language Button */
-        .lang-btn {
-            border: 1px solid var(--primary);
-            background: transparent;
-            color: var(--primary);
-            padding: 5px 15px;
-            cursor: pointer;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .lang-btn:hover {
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        /* Hero */
-        .track-hero {
-            min-height: 40vh;
-            /* Placeholder background if image is missing */
-            background-color: #2b1a12; 
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/shop-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .track-hero h1 {
-            font-size: 2.5rem;
-        }
-
-        /* Main Section */
-        .track-container {
-            max-width: 900px;
-            margin: -80px auto 4rem;
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-
-        .track-container p {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .track-form {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .track-form input {
-            padding: 12px;
-            width: 280px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-
-        .track-form button {
-            padding: 12px 24px;
-            background: var(--secondary);
-            border: none;
-            color: white;
-            font-size: 1rem;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-
-        .track-form button:hover {
-            background: var(--primary);
-        }
-
-        /* Status */
-        .status-box {
-            margin-top: 3rem;
-            display: none; /* Hidden by default */
-        }
-
-        .status-step {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .status-dot {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: #ccc;
-        }
-
-        .status-step.active .status-dot {
-            background: var(--secondary);
-            box-shadow: 0 0 0 4px rgba(224, 122, 95, 0.2);
-        }
-
-        .status-step.completed .status-dot {
-            background: green;
-        }
-
-        footer {
-            background: var(--text);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        @media (max-width: 600px) {
-            .track-hero h1 { font-size: 1.8rem; }
-            .track-container { margin: -50px 1rem 3rem; padding: 2rem; }
-        }
-    </style>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="track-order.css">
 </head>
 <body>
 
@@ -198,18 +39,22 @@
             <div class="status-dot"></div>
             <span id="step-1">Order Confirmed</span>
         </div>
+
         <div class="status-step completed">
             <div class="status-dot"></div>
             <span id="step-2">Crafting in Progress</span>
         </div>
+
         <div class="status-step active">
             <div class="status-dot"></div>
             <span id="step-3">Shipped</span>
         </div>
+
         <div class="status-step">
             <div class="status-dot"></div>
             <span id="step-4">Out for Delivery</span>
         </div>
+
         <div class="status-step">
             <div class="status-dot"></div>
             <span id="step-5">Delivered</span>
@@ -221,142 +66,8 @@
     <span id="footer-text">&copy; 2026 CraftedByMoharana · Handcrafted with Devotion</span>
 </footer>
 
-<script>
-    // 🔴 IMPORTANT: PASTE YOUR GOOGLE APPS SCRIPT URL HERE
-    // It looks like: https://script.google.com/macros/s/...../exec
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyS-cXesrNfYK2GkmxH1iBclmQdfcUUCAVaN60Hn2K7fjvcpnPXSAAt91kxCVmMfcC-/exec"; 
-
-    // Translation Data
-    const translations = {
-        en: {
-            title: "Track Your Order",
-            desc: "Enter your Order ID to check the current shipping status.",
-            placeholder: "Enter Order ID",
-            btn: "Track Order",
-            statusTitle: "Order Status for: ",
-            notFound: "Order ID not found. Please check and try again.",
-            error: "Connection failed. Please try again.",
-            // These must match the IDs step-1 to step-5
-            steps: ["Order Confirmed", "Crafting in Progress", "Shipped", "Out for Delivery", "Delivered"],
-            footer: "© 2026 CraftedByMoharana · Handcrafted with Devotion"
-        },
-        or: {
-            title: "ଅର୍ଡର ଟ୍ରାକ୍ କରନ୍ତୁ",
-            desc: "ଆପଣଙ୍କ ଅର୍ଡରର ସ୍ଥିତି ଜାଣିବା ପାଇଁ ଅର୍ଡର ID ଦିଅନ୍ତୁ |",
-            placeholder: "ଅର୍ଡର ID ଲେଖନ୍ତୁ",
-            btn: "ଟ୍ରାକ୍ କରନ୍ତୁ",
-            statusTitle: "ଅର୍ଡର ସ୍ଥିତି: ",
-            notFound: "ଅର୍ଡର ID ମିଳିଲା ନାହିଁ | ଦୟାକରି ଯାଞ୍ଚ କରନ୍ତୁ |",
-            error: "ସଂଯୋଗ ବିଫଳ ହେଲା | ଦୟାକରି ପୁନର୍ବାର ଚେଷ୍ଟା କରନ୍ତୁ |",
-            steps: ["ଅର୍ଡର ନିଶ୍ଚିତ ହେଲା", "ନିର୍ମାଣ ଚାଲିଛି", "ପଠାଗଲା (Shipped)", "ବିତରଣ ପାଇଁ ବାହାରିଛି", "ହସ୍ତାନ୍ତର ହେଲା (Delivered)"],
-            footer: "© 2026 CraftedByMoharana · ଭକ୍ତିର ସହ ହସ୍ତନିର୍ମିତ"
-        }
-    };
-
-    let currentLang = 'en';
-
-    function toggleLanguage() {
-        currentLang = currentLang === 'en' ? 'or' : 'en';
-        const data = translations[currentLang];
-        
-        // Helper to set text
-        const setText = (id, text) => {
-            const el = document.getElementById(id);
-            if(el) el.innerText = text;
-        };
-
-        // Add/Remove Odia Font Class
-        if (currentLang === 'or') document.body.classList.add('odia-text');
-        else document.body.classList.remove('odia-text');
-
-        // Apply Translations
-        setText('hero-title', data.title);
-        setText('track-desc', data.desc);
-        setText('track-btn', data.btn);
-        setText('status-title', data.statusTitle); // Note: This gets overwritten if tracking is active
-        setText('footer-text', data.footer);
-        document.getElementById('orderId').placeholder = data.placeholder;
-
-        // Update step labels
-        for(let i=0; i<5; i++) {
-             setText('step-'+(i+1), data.steps[i]);
-        }
-    }
-
-    function trackOrder() {
-        const id = document.getElementById('orderId').value.trim();
-        const data = translations[currentLang];
-        const btn = document.getElementById('track-btn');
-        const statusBox = document.getElementById('statusBox');
-        
-        if (!id) {
-            alert(currentLang === 'en' ? 'Please enter a valid Order ID' : 'ଦୟାକରି ଏକ ସଠିକ୍ ଅର୍ଡର ID ଦିଅନ୍ତୁ');
-            return;
-        }
-
-        // UI: Show loading
-        btn.innerText = "Checking...";
-        btn.disabled = true;
-
-        // FETCH DATA FROM GOOGLE SHEET
-        fetch(SCRIPT_URL + "?orderId=" + encodeURIComponent(id))
-        .then(response => response.json())
-        .then(result => {
-            // Reset button
-            btn.innerText = data.btn;
-            btn.disabled = false;
-
-            if (result.status === "found") {
-                statusBox.style.display = 'block';
-                // Show Customer Name
-                document.getElementById('status-title').innerText = data.statusTitle + result.customerName;
-                // Update Progress Bar visuals
-                updateProgressBar(result.currentStage);
-            } else {
-                statusBox.style.display = 'none';
-                alert(data.notFound);
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            btn.innerText = data.btn;
-            btn.disabled = false;
-            alert(data.error);
-        });
-    }
-
-    function updateProgressBar(statusFromSheet) {
-        // Map the exact words from your Google Sheet (Column H) to step numbers (0-4)
-        const statusMap = {
-            "pending": 0,           // Matches Step 1
-            "confirmed": 0,         // Alternative for Step 1
-            "crafting": 1,          // Matches Step 2
-            "shipped": 2,           // Matches Step 3
-            "out for delivery": 3,  // Matches Step 4
-            "delivered": 4          // Matches Step 5
-        };
-
-        // Normalize to lowercase to avoid case-sensitive errors
-        let statusKey = (statusFromSheet || "").toLowerCase();
-        let activeIndex = statusMap[statusKey] !== undefined ? statusMap[statusKey] : 0;
-
-        const steps = document.querySelectorAll('.status-step');
-        
-        steps.forEach((step, index) => {
-            // Reset classes
-            step.classList.remove('active', 'completed');
-
-            if (index < activeIndex) {
-                // Completed steps (Green)
-                step.classList.add('completed');
-            } else if (index === activeIndex) {
-                // Current step (Orange/Active)
-                step.classList.add('active');
-            }
-            // Future steps remain grey (no class)
-        });
-    }
-</script>
+<!-- External JavaScript -->
+<script src="track-order.js"></script>
 
 </body>
 </html>
