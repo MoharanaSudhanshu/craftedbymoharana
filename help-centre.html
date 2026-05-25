@@ -1,310 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Help Centre | CraftedByMoharana</title>
-<link rel="icon" type="image/png" href="images/logo-icon.png">
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Cinzel:wght@500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Centre | CraftedByMoharana</title>
+    <link rel="icon" type="image/png" href="images/logo-icon.png">
 
-<style>
-/* ===== THEME VARIABLES ===== */
-:root {
-    --primary: #8B4513;
-    --secondary: #E07A5F;
-    --accent: #F2CC8F;
-    --bg: #F4F1DE;
-    --text: #3D405B;
-    --white: #ffffff;
-    --shadow: 0 4px 6px rgba(0,0,0,0.1);
-    --transition: all 0.3s ease;
-}
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Cinzel:wght@500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 
-/* ===== BASE ===== */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-    font-family: 'Lato', sans-serif;
-    background-color: var(--bg);
-    color: var(--text);
-}
-
-h1, h2, h3 { font-family: 'Cinzel', serif; }
-.odia { font-family: 'Baloo 2', cursive; }
-
-/* ===== HEADER ===== */
-header {
-    background: var(--white);
-    padding: 1rem 5%;
-    box-shadow: var(--shadow);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.brand {
-    text-decoration: none;
-    font-size: 1.5rem;
-    color: var(--primary);
-    font-weight: 700;
-}
-
-.lang-switch {
-    border: 1px solid var(--primary);
-    background: none;
-    color: var(--primary);
-    padding: 6px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-/* ===== SECTION ===== */
-.section-padding { padding: 4rem 5%; }
-.section-title {
-    text-align: center;
-    font-size: 2rem;
-    color: var(--primary);
-    margin-bottom: 3rem;
-    position: relative;
-}
-.section-title::after {
-    content: ''; display: block; width: 60px; height: 3px;
-    background: var(--secondary); margin: 10px auto;
-}
-
-/* ===== HELP CARDS ===== */
-.help-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-.help-card {
-    background: var(--white);
-    border-radius: 8px;
-    padding: 2rem;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-}
-.help-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-.help-card h3 { color: var(--primary); margin-bottom: 0.8rem; }
-.help-card p { color: #666; font-size: 0.95rem; margin-bottom: 1.2rem; }
-
-/* ===== BUTTONS ===== */
-.btn-sm {
-    padding: 8px 16px;
-    background-color: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-.btn-sm:hover { background-color: var(--secondary); }
-
-.btn {
-    padding: 12px 30px;
-    background-color: var(--secondary);
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-}
-.btn:hover { background-color: var(--primary); }
-
-/* ===== FAQ ===== */
-.faq-card {
-    background: var(--white);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-    box-shadow: var(--shadow);
-    cursor: pointer;
-}
-.faq-card h4 { color: var(--primary); }
-.faq-card p {
-    display: none;
-    margin-top: 0.8rem;
-    color: #555;
-}
-.faq-card.active p { display: block; }
-
-/* ===== TICKET ===== */
-.ticket-card {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    max-width: 600px;
-    margin: auto;
-}
-.ticket-card input, .ticket-card textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-/* ===== WHATSAPP ===== */
-.whatsapp {
-    position: fixed; bottom: 25px; right: 25px;
-    width: 60px; height: 60px;
-    background: #25D366; color: white;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 28px; text-decoration: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-/* ===== FOOTER ===== */
-footer {
-    background: var(--text); color: white;
-    padding: 3rem 5%; margin-top: 4rem; text-align: center;
-}
-</style>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="help-centre.css">
 </head>
 
 <body>
 
-<header>
-    <a href="index.html" class="brand">🛕 CraftedByMoharana</a>
-    <button class="lang-switch" onclick="toggleLang()">EN / ଓଡ଼ିଆ</button>
-</header>
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="brand">🛕 CraftedByMoharana</a>
+        <button class="lang-switch" onclick="toggleLang()">EN / ଓଡ଼ିଆ</button>
+    </header>
 
-<section class="section-padding">
-    <h2 class="section-title" id="title">Help Centre</h2>
+    <!-- Help Cards -->
+    <section class="section-padding">
+        <h2 class="section-title" id="title">Help Centre</h2>
 
-    <div class="help-grid">
-        <div class="help-card">
-            <h3 id="c1">📦 Orders & Shipping</h3>
-            <p>Track your order and delivery status.</p>
-            <a href="track-order.html"><button class="btn-sm">Track Order</button></a>
-        </div>
-
-        <div class="help-card">
-            <h3 id="c2">💳 Payments</h3>
-            <p>Payment methods and refund queries.</p>
-        </div>
-
-        <div class="help-card">
-            <h3 id="c3">🔁 Returns & Refunds</h3>
-            <p>Return policy for handcrafted items.</p>
-        </div>
-
-        <div class="help-card">
-            <h3 id="c4">🛠 Custom Orders</h3>
-            <p>Request custom Jagannath idols.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section-padding">
-    <h2 class="section-title">FAQs</h2>
-    <div id="faqBox"></div>
-</section>
-
-<section class="section-padding">
-    <h2 class="section-title">Raise a Support Ticket</h2>
-    <div class="ticket-card">
-        <input id="tName" placeholder="Your Name">
-        <input id="tEmail" placeholder="Email">
-        <textarea id="tMsg" placeholder="Describe your issue"></textarea>
-        <button class="btn" onclick="submitTicket()">Submit Ticket</button>
-    </div>
-</section>
-
-<a class="whatsapp" href="https://wa.me/919938806911" target="_blank">💬</a>
-
-<footer>
-    &copy; 2026 CraftedByMoharana · Preserving Sacred Craftsmanship
-</footer>
-
-<script>
-    // === 1. STORE ALL DATA HERE (NO GOOGLE SHEET) ===
-    let currentLang = 'en';
-
-    // Static text translation
-    const pageText = {
-        en: {
-            title: "Help Centre",
-            c1: "📦 Orders & Shipping",
-            c2: "💳 Payments",
-            c3: "🔁 Returns & Refunds",
-            c4: "🛠 Custom Orders"
-        },
-        or: {
-            title: "ସହାୟତା କେନ୍ଦ୍ର",
-            c1: "ଅର୍ଡର ଓ ଡିଲିଭରି",
-            c2: "ପେମେଣ୍ଟ",
-            c3: "ରିଟର୍ନ ଓ ରିଫଣ୍ଡ",
-            c4: "କଷ୍ଟମ ଅର୍ଡର"
-        }
-    };
-
-    // FAQ Data (Add or remove questions here easily)
-    const faqData = {
-        en: [
-            { q: "How long does delivery take?", a: "Domestic orders (India) typically arrive within 5-7 business days. International orders take 10-15 days depending on customs clearance." },
-            { q: "Do you ship internationally?", a: "Yes, we ship our divine idols and handicrafts worldwide. Shipping charges are calculated at checkout based on weight and location." },
-            { q: "Is the idol made of real Neem wood?", a: "Yes, absolutely. Every Jagannath idol is hand-carved from seasoned, sacred Neem wood by traditional artisans of Puri." },
-            { q: "What happens if my idol arrives damaged?", a: "We take great care in packaging. However, if damage occurs during transit, please share an unboxing video within 24 hours for a replacement." },
-            { q: "Can I order a custom size?", a: "Yes! As we carve everything by hand, we can customize the size (height/width) of the idols. Please contact us on WhatsApp (+91 9938806911) for a quote." }
-        ],
-        or: [
-            { q: "ଡେଲିଭରି କେତେ ଦିନ ଲାଗେ? (Delivery time?)", a: "ଭାରତ ଭିତରେ ଅର୍ଡର ପହଞ୍ଚିବାକୁ ସାଧାରଣତଃ ୫-୭ ଦିନ ଲାଗେ | ବିଦେଶ ଅର୍ଡର ପାଇଁ ୧୦-୧୫ ଦିନ ସମୟ ଲାଗିପାରେ |" },
-            { q: "ଆପଣ ବିଦେଶକୁ ପଠାନ୍ତି କି? (Intl shipping?)", a: "ହଁ, ଆମେ ବିଶ୍ୱର ଯେକୌଣସି ସ୍ଥାନକୁ ମହାପ୍ରଭୁଙ୍କ ମୂର୍ତ୍ତି ପଠାଇଥାଉ | ଓଜନ ଅନୁସାରେ ସିପିଂ ଚାର୍ଜ ଲାଗିବ |" },
-            { q: "ଏହା କଣ ଅସଲି ନିମ୍ବ କାଠ? (Real Neem wood?)", a: "ହଁ, ସମ୍ପୂର୍ଣ୍ଣ ସତ୍ୟ | ପ୍ରତ୍ୟେକ ମୂର୍ତ୍ତି ପୁରୀର କାରିଗରମାନଙ୍କ ଦ୍ୱାରା ପବିତ୍ର ନିମ୍ବ କାଠରୁ ନିର୍ମିତ |" },
-            { q: "ମୂର୍ତ୍ତି ଭାଙ୍ଗିଗଲେ କଣ ହେବ? (Damaged item?)", a: "ଯଦି ପାର୍ସଲ ଖୋଲିବା ବେଳେ କିଛି କ୍ଷତି ଦେଖାଯାଏ, ତେବେ ୨୪ ଘଣ୍ଟା ମଧ୍ୟରେ ଭିଡିଓ ପଠାନ୍ତୁ | ଆମେ ବଦଳାଇ ଦେବୁ |" },
-            { q: "ମୁଁ ନିଜ ପସନ୍ଦର ମୂର୍ତ୍ତି ଗଢିପାରିବି କି? (Custom size?)", a: "ହଁ, ଆମେ ହାତରେ ତିଆରି କରୁଥିବାରୁ ଆପଣଙ୍କ ଆବଶ୍ୟକତା ଅନୁଯାୟୀ ଆକାର ବଦଳାଇ ପାରିବୁ | ଦୟାକରି WhatsApp ରେ ଯୋଗାଯୋଗ କରନ୍ତୁ |" }
-        ]
-    };
-
-    // === 2. FUNCTIONS ===
-    
-    function toggleLang() {
-        // Switch Language
-        currentLang = currentLang === 'en' ? 'or' : 'en';
-        
-        // Update Static Text
-        document.getElementById('title').innerText = pageText[currentLang].title;
-        document.getElementById('c1').innerText = pageText[currentLang].c1;
-        document.getElementById('c2').innerText = pageText[currentLang].c2;
-        document.getElementById('c3').innerText = pageText[currentLang].c3;
-        document.getElementById('c4').innerText = pageText[currentLang].c4;
-        
-        // Add Odia Font Class
-        if(currentLang === 'or') document.body.classList.add('odia');
-        else document.body.classList.remove('odia');
-
-        // Re-render FAQs in the new language
-        renderFAQs();
-    }
-
-    function renderFAQs() {
-        const box = document.getElementById("faqBox");
-        const list = faqData[currentLang]; // Get the list for current language
-
-        // Create HTML
-        box.innerHTML = list.map(f => `
-            <div class="faq-card" onclick="this.classList.toggle('active')">
-                <h4>${f.q}</h4>
-                <p>${f.a}</p>
+        <div class="help-grid">
+            <div class="help-card">
+                <h3 id="c1">📦 Orders & Shipping</h3>
+                <p>Track your order and delivery status.</p>
+                <a href="track-order.html">
+                    <button class="btn-sm">Track Order</button>
+                </a>
             </div>
-        `).join('');
-    }
 
-    // === 3. RUN ON LOAD ===
-    document.addEventListener("DOMContentLoaded", renderFAQs);
+            <div class="help-card">
+                <h3 id="c2">💳 Payments</h3>
+                <p>Payment methods and refund queries.</p>
+            </div>
 
-    function submitTicket() {
-        const tName = document.getElementById('tName').value;
-        if(!tName) return alert("Please enter your name");
-        alert("For now, please contact us on WhatsApp for support!");
-    }
-</script>
+            <div class="help-card">
+                <h3 id="c3">🔁 Returns & Refunds</h3>
+                <p>Return policy for handcrafted items.</p>
+            </div>
+
+            <div class="help-card">
+                <h3 id="c4">🛠 Custom Orders</h3>
+                <p>Request custom Jagannath idols.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="section-padding">
+        <h2 class="section-title">FAQs</h2>
+        <div id="faqBox"></div>
+    </section>
+
+    <!-- Support Ticket -->
+    <section class="section-padding">
+        <h2 class="section-title">Raise a Support Ticket</h2>
+
+        <div class="ticket-card">
+            <input id="tName" placeholder="Your Name">
+            <input id="tEmail" placeholder="Email">
+            <textarea id="tMsg" placeholder="Describe your issue"></textarea>
+            <button class="btn" onclick="submitTicket()">Submit Ticket</button>
+        </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a class="whatsapp" href="https://wa.me/919938806911" target="_blank">💬</a>
+
+    <footer>
+        &copy; 2026 CraftedByMoharana · Preserving Sacred Craftsmanship
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="help-centre.js"></script>
 
 </body>
 </html>
