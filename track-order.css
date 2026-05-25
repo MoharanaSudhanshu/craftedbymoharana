@@ -1,0 +1,175 @@
+:root {
+    --primary: #8B4513;
+    --secondary: #E07A5F;
+    --accent: #F2CC8F;
+    --bg: #F4F1DE;
+    --text: #3D405B;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* Class for Odia Font */
+.odia-text {
+    font-family: 'Baloo 2', cursive;
+}
+
+h1, h2 {
+    font-family: 'Cinzel', serif;
+}
+
+/* Header */
+header {
+    background: var(--white);
+    padding: 1rem 5%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-size: 1.5rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* Language Button */
+.lang-btn {
+    border: 1px solid var(--primary);
+    background: transparent;
+    color: var(--primary);
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.lang-btn:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+/* Hero */
+.track-hero {
+    min-height: 40vh;
+    background-color: #2b1a12;
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/shop-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+.track-hero h1 {
+    font-size: 2.5rem;
+}
+
+/* Main Section */
+.track-container {
+    max-width: 900px;
+    margin: -80px auto 4rem;
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.track-container p {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.track-form {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.track-form input {
+    padding: 12px;
+    width: 280px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.track-form button {
+    padding: 12px 24px;
+    background: var(--secondary);
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.track-form button:hover {
+    background: var(--primary);
+}
+
+/* Status */
+.status-box {
+    margin-top: 3rem;
+    display: none;
+}
+
+.status-step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.status-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ccc;
+}
+
+.status-step.active .status-dot {
+    background: var(--secondary);
+    box-shadow: 0 0 0 4px rgba(224, 122, 95, 0.2);
+}
+
+.status-step.completed .status-dot {
+    background: green;
+}
+
+/* Footer */
+footer {
+    background: var(--text);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .track-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .track-container {
+        margin: -50px 1rem 3rem;
+        padding: 2rem;
+    }
+}
